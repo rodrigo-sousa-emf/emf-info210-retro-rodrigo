@@ -33,7 +33,7 @@ app.get("/api/roms/:file", (req, res) => {
   const file = req.params.file;
   const fullPath = path.join(romsDir, file);
 
-  if (!fullPath.startsWith(romsDir)) return res.status(400).send("Bad path ");
+  if (!fullPath.startsWith(romsDir)) return res.status(400).send("Bad path");
   if (!fs.existsSync(fullPath)) return res.status(404).send("ROM not found");
 
   res.sendFile(fullPath);
